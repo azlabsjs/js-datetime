@@ -1,4 +1,4 @@
 export { ParseMonth } from './months';
-export { JSDate } from './js-datetime';
+export { JSDate } from './datetime';
 export { TimeAgo, GetTimeAgo } from './timeago';
 export { Month, JsDateParamType } from './types';

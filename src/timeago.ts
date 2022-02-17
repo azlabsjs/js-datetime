@@ -1,4 +1,4 @@
-import { JSDate } from './js-datetime';
+import { JSDate } from './datetime';
 import { JsDateParamType } from './types';
 
 type ShortTimeUnit_ = 'y' | 'm' | 'w' | 'd' | 'h' | 'i' | 's';

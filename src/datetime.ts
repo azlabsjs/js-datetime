@@ -117,6 +117,8 @@ export class JSDate {
         ? new Date()
         : typeof value_ === 'number'
         ? new Date(value_)
+        : value_ instanceof Date
+        ? new Date(value_)
         : (value_ as Date);
     // #endregion ensureDate()
     return typeof value === 'string' ? new Date(value) : ensureDate(value);
@@ -478,48 +480,48 @@ export class JSDate {
       case 'weeks':
       case 'w':
         incr
-          ? today.setDate(new Date().getDate() + value * 7)
-          : today.setDate(new Date().getDate() - value * 7);
+          ? today.setDate(today.getDate() + value * 7)
+          : today.setDate(today.getDate() - value * 7);
         break;
       case 'day':
       case 'days':
       case 'd':
         incr
-          ? today.setDate(new Date().getDate() + value)
-          : today.setDate(new Date().getDate() - value);
+          ? today.setDate(today.getDate() + value)
+          : today.setDate(today.getDate() - value);
         break;
       case 'hour':
       case 'hours':
       case 'h':
         incr
-          ? today.setHours(new Date().getHours() + value)
-          : today.setHours(new Date().getHours() - value);
+          ? today.setHours(today.getHours() + value)
+          : today.setHours(today.getHours() - value);
         break;
       case 'minute':
       case 'minutes':
       case 'm':
         incr
-          ? today.setMinutes(new Date().getMinutes() + value)
-          : today.setMinutes(new Date().getMinutes() - value);
+          ? today.setMinutes(today.getMinutes() + value)
+          : today.setMinutes(today.getMinutes() - value);
         break;
       case 'second':
       case 'seconds':
       case 's':
         incr
-          ? today.setSeconds(new Date().getSeconds() + value)
-          : today.setSeconds(new Date().getSeconds() - value);
+          ? today.setSeconds(today.getSeconds() + value)
+          : today.setSeconds(today.getSeconds() - value);
         break;
       case 'millisecond':
       case 'milliseconds':
       case 'ms':
         incr
-          ? today.setMilliseconds(new Date().getMilliseconds() + value)
-          : today.setMilliseconds(new Date().getMilliseconds() - value);
+          ? today.setMilliseconds(today.getMilliseconds() + value)
+          : today.setMilliseconds(today.getMilliseconds() - value);
         break;
       default:
         incr
-          ? today.setMilliseconds(new Date().getMilliseconds() + value)
-          : today.setMilliseconds(new Date().getMilliseconds() - value);
+          ? today.setMilliseconds(today.getMilliseconds() + value)
+          : today.setMilliseconds(today.getMilliseconds() - value);
         break;
     }
     return today;

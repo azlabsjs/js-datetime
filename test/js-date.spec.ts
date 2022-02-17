@@ -4,18 +4,43 @@ describe('JSDate Utilities class', () => {
   it('JSDate.create() should returns an instance of javascript date object for valid date inputs', () => {
     expect(JSDate.create('2022-02-17 12:5700')).toBeInstanceOf(Date);
     expect(JSDate.create('I am not a date').toString()).toEqual('Invalid Date');
-    expect(JSDate.create()).toEqual(JSDate.now());
+    const date1 = JSDate.now();
+    const date2 = JSDate.create(new Date);
+    expect(JSDate.format(date1)).toEqual(JSDate.format(date2));
   });
 
   it('JSDate.substract() on 2022-02-17 00:00:00 by 1 week should equals 2022-02-10 00:00:00', () => {
     expect(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
       new Date('2022-02-10T00:00:00')
     );
+    expect(JSDate.substract('y', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2021-02-17T00:00:00')
+    );
+    expect(JSDate.substract('M', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-01-17T00:00:00')
+    );
+    expect(JSDate.substract('d', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-16T00:00:00')
+    );
   });
 
   it('JSDate.add() on 2022-02-17 00:00:00 by 1 week should equals 2022-02-24 00:00:00', () => {
     expect(JSDate.add('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
       new Date('2022-02-24T00:00:00')
+    );
+    expect(JSDate.add('h', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T01:00:00')
+    );
+    expect(JSDate.add('m', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T00:01:00')
+    );
+    expect(JSDate.add('s', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T00:00:01')
+    );
+    const date = new Date('2022-02-17 00:00:00');
+    date.setMilliseconds(date.getMilliseconds() + 1);
+    expect(JSDate.add('ms', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      date
     );
   });
 
@@ -146,6 +171,9 @@ describe('JSDate Utilities class', () => {
     JSDate.locale('fr-FR');
     const format4 = JSDate.format(date, 'LL');
     expect(format4).toEqual('17 février 2022');
+    expect(JSDate.format(date, 'YYYY-MM-DD H:I:S')).toEqual(
+      '2022-02-17 13:24:45'
+    );
   });
 
   it('JSDate.timeSince() should returns true for a difference in ms computation of today and another date', () => {
