@@ -100,14 +100,19 @@ export class JSDate {
    *
    * @param locale_
    */
-  static locale = (locale_: string = 'en-US') => (JSDate.LOCALE_ = locale_);
+  static locale = (locale_?: string) => {
+    if (locale_) {
+      JSDate.LOCALE_ = locale_;
+    }
+    return JSDate.LOCALE_;
+  };
 
   /**
    * Creates a javascript date object
    *
    * @param value
    */
-  static create = <T extends JsDateParamType>(value?: T) => {
+  static create = <T extends JsDateParamType>(value?: T, format?: string) => {
     // #region ensureDate()
     const ensureDate = (value_: any) =>
       typeof value_ === 'undefined' || value_ === null
@@ -118,7 +123,9 @@ export class JSDate {
         ? new Date(value_)
         : (value_ as Date);
     // #endregion ensureDate()
-    return typeof value === 'string' ? new Date(value) : ensureDate(value);
+    return typeof value === 'string'
+      ? JSDate.createFromFormat_(value, format)
+      : ensureDate(value);
   };
 
   /**
@@ -516,5 +523,12 @@ export class JSDate {
       (date1.getFullYear() - date2.getFullYear()) * 12 - date1.getMonth();
     months += date2.getMonth();
     return months;
+  };
+
+  private static createFromFormat_ = (date: string, format?: string) => {
+    if (typeof format !== 'string') {
+      return new Date(date);
+    }
+    throw new Error('UnImplemented!');
   };
 }
