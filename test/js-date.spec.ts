@@ -5,7 +5,7 @@ describe('JSDate Utilities class', () => {
     expect(JSDate.create('2022-02-17 12:5700')).toBeInstanceOf(Date);
     expect(JSDate.create('I am not a date').toString()).toEqual('Invalid Date');
     const date1 = JSDate.now();
-    const date2 = JSDate.create(new Date);
+    const date2 = JSDate.create(new Date());
     expect(JSDate.format(date1)).toEqual(JSDate.format(date2));
   });
 
