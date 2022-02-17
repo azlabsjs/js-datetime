@@ -82,7 +82,6 @@ const timeSinceOutput = (
 };
 
 /**
- * @flow
  * Utility class for providing `*** time ago` or `*** time after` statement from
  * date values.
  */
@@ -91,7 +90,6 @@ export class TimeAgo {
   constructor(private locales: TimeSinceLocaleConfig = DEFAULT_LOCALES) {}
 
   /**
-   * @flow
    * Format a given datetime|datelike value into a  `*** time ago` or `*** time after` statement
    * based on a user provided locale string
    *

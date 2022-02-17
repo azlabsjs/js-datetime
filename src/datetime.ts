@@ -41,7 +41,6 @@ type DateTimeFormat =
   | 'MMMM';
 
 /**
- * @flow
  * JSDate is an utility class for manipulating javascript date object. It offers various
  * methods to serve this purpose.
  *
@@ -97,16 +96,14 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Set the global local to use when formating dates
+   * Set the global local to use when formating dates
    *
    * @param locale_
    */
   static locale = (locale_: string = 'en-US') => (JSDate.LOCALE_ = locale_);
 
   /**
-   * @flow
-   * @description Creates a javascript date object
+   * Creates a javascript date object
    *
    * @param value
    */
@@ -125,8 +122,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Substract time unit from a js date
+   * Substract time unit from a js date
    *
    * @param unit
    * @param date
@@ -148,8 +144,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Adds time unit from a js date
+   * Adds time unit from a js date
    *
    * @param unit
    * @param date
@@ -166,8 +161,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Checks if a given date is before the current date
+   * Checks if a given date is before the current date
    *
    * @param date
    */
@@ -175,8 +169,7 @@ export class JSDate {
     JSDate.isBefore(date, JSDate.now() as JsDateParamType);
 
   /**
-   * @flow
-   * @description Checks if a given date is after the current date
+   * Checks if a given date is after the current date
    *
    * @param date
    */
@@ -184,8 +177,7 @@ export class JSDate {
     JSDate.isAfter(date, JSDate.now() as JsDateParamType);
 
   /**
-   * @flow
-   * @description Checks if a given date is after another date
+   * Checks if a given date is after another date
    *
    * @param date1
    * @param date2
@@ -198,8 +190,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Checks if a given date is before another date
+   * Checks if a given date is before another date
    *
    * @param date1
    * @param date2
@@ -211,8 +202,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Evaluate if the given parameter is a valid JsDateParamType
+   * Evaluate if the given parameter is a valid JsDateParamType
    *
    * @param date
    */
@@ -230,8 +220,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Get the month part of a given date
+   * Get the month part of a given date
    *
    * @param date
    */
@@ -239,8 +228,7 @@ export class JSDate {
     JSDate.create(date).getMonth();
 
   /**
-   * @flow
-   * @description Get the year part of a given date
+   * Get the year part of a given date
    *
    * @param date
    */
@@ -248,8 +236,7 @@ export class JSDate {
     JSDate.create(date).getFullYear();
 
   /**
-   * @flow
-   * @description Get the day of the week part of a given date
+   * Get the day of the week part of a given date
    *
    * @param date
    */
@@ -257,8 +244,7 @@ export class JSDate {
     JSDate.create(date).getDay();
 
   /**
-   * @flow
-   * @description Get the day of the month part of a given date
+   * Get the day of the month part of a given date
    *
    * @param date
    */
@@ -266,8 +252,7 @@ export class JSDate {
     JSDate.create(date).getDate();
 
   /**
-   * @flow
-   * @description Get hours part of date time object
+   * Get hours part of date time object
    *
    * @param date
    */
@@ -275,8 +260,7 @@ export class JSDate {
     JSDate.create(date).getHours();
 
   /**
-   * @flow
-   * @description Get minutes part of date time object
+   * Get minutes part of date time object
    *
    * @param date
    */
@@ -284,8 +268,7 @@ export class JSDate {
     JSDate.create(date).getMinutes();
 
   /**
-   * @flow
-   * @description Get seconds part of date time object
+   * Get seconds part of date time object
    *
    * @param date
    */
@@ -293,8 +276,7 @@ export class JSDate {
     JSDate.create(date).getSeconds();
 
   /**
-   * @flow
-   * @description Get ms part of date time object
+   * Get ms part of date time object
    *
    * @param date
    */
@@ -302,8 +284,7 @@ export class JSDate {
     JSDate.create(date).getMilliseconds();
 
   /**
-   * @flow
-   * @description Compute time difference between two JavaScript dates
+   * Compute time difference between two JavaScript dates
    *
    * @param date1
    * @param date2
@@ -355,26 +336,24 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Returns the current date object
+   * Returns the current date object
    */
   static now = () => JSDate.create();
 
   /**
-   * @flow
-   * @description Format Javascript date object
+   * Format Javascript date object
    */
   static format = <T extends JsDateParamType>(
     date?: T,
     format_: DateTimeFormat | string = 'L'
   ) => {
-    if (['LT', 'LTS'].includes(format_)) {
+    if (['LT', 'LTS'].indexOf(format_) !== -1) {
       return JSDate.create(date).toLocaleTimeString(
         JSDate.LOCALE_,
         JSDate.FORMAT_MAP[format_]
       );
     }
-    if (['l', 'LL', 'll', 'LLL', 'lll', 'L'].includes(format_)) {
+    if (['l', 'LL', 'll', 'LLL', 'lll', 'L'].indexOf(format_) !== -1) {
       return JSDate.create(date).toLocaleString(
         JSDate.LOCALE_,
         JSDate.FORMAT_MAP[format_]
@@ -384,8 +363,7 @@ export class JSDate {
   };
 
   /**
-   * @flow
-   * @description Computes the number of milliseconds differences between a given
+   * Computes the number of milliseconds differences between a given
    * date and today.
    *
    * @param date
