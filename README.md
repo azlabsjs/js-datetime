@@ -36,9 +36,10 @@ const date = JSDate.create('2022-02-17 12:5700');
 ```
 
 - Substract dates 
+
 Substract dates from current date
 
-  1. Substract weeks  
+1. Substract weeks  
 
 ```ts
 // Soustraire une semaine 
@@ -47,7 +48,7 @@ Substract dates from current date
     );
 ```
 
-  2. Substract years  
+2. Substract years  
 
 ```ts
 // Soustraire une année 
@@ -56,7 +57,7 @@ Substract dates from current date
     );
 ```
 
-  3. Substract months  
+3. Substract months  
 
 ```ts
 // Soustraire un mois 
@@ -65,7 +66,7 @@ Substract dates from current date
     );
 ```
 
-  4. Substract days  
+4. Substract days  
 
 ```ts
 // Soustraire un jour
@@ -76,7 +77,7 @@ Substract dates from current date
 
 - add dates 
 
-  1. add weeks  
+1. add weeks  
 
 ```ts
 // ajouter une semaine 
@@ -85,7 +86,7 @@ Substract dates from current date
     );
 ```
 
-  2. add hours  
+2. add hours  
 
 ```ts
 // ajouter une heure 
@@ -94,7 +95,7 @@ Substract dates from current date
     );
 ```
 
-  3. add minutes  
+3. add minutes  
 
 ```ts
 // ajouter une minute 
@@ -103,7 +104,7 @@ Substract dates from current date
     );
 ```
 
-  4. add secondes  
+4. add secondes  
 
 ```ts
 // ajouter une seconde 
