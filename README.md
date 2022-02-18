@@ -36,8 +36,9 @@ const date = JSDate.create('2022-02-17 12:5700');
 ```
 
 - Substract dates 
+Substract dates from current date
 
-1. Substract weeks  
+  1. Substract weeks  
 
 ```ts
 // Soustraire une semaine 
@@ -46,7 +47,7 @@ const date = JSDate.create('2022-02-17 12:5700');
     );
 ```
 
-2. Substract years  
+  2. Substract years  
 
 ```ts
 // Soustraire une année 
@@ -55,7 +56,7 @@ const date = JSDate.create('2022-02-17 12:5700');
     );
 ```
 
-3. Substract months  
+  3. Substract months  
 
 ```ts
 // Soustraire un mois 
@@ -64,12 +65,50 @@ const date = JSDate.create('2022-02-17 12:5700');
     );
 ```
 
-4. Substract days  
+  4. Substract days  
 
 ```ts
 // Soustraire un jour
     expect(JSDate.substract('d', JSDate.create('2022-02-17 00:00:00'))).toEqual(
       new Date('2022-02-16T00:00:00')
+    );
+```
+
+- add dates 
+
+  1. add weeks  
+
+```ts
+// ajouter une semaine 
+    expect(JSDate.add('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-24T00:00:00')
+    );
+```
+
+  2. add hours  
+
+```ts
+// ajouter une heure 
+    expect(JSDate.add('h', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T01:00:00')
+    );
+```
+
+  3. add minutes  
+
+```ts
+// ajouter une minute 
+    expect(JSDate.add('m', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T00:01:00')
+    );
+```
+
+  4. add secondes  
+
+```ts
+// ajouter une seconde 
+    expect(JSDate.add('s', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-17T00:00:01')
     );
 ```
 
