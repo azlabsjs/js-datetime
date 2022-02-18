@@ -35,6 +35,44 @@ methods to serve this purpose.
 const date = JSDate.create('2022-02-17 12:5700');
 ```
 
+- Substract dates 
+
+1. Substract weeks  
+
+```ts
+// Soustraire une semaine 
+    expect(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-10T00:00:00')
+    );
+```
+
+2. Substract years  
+
+```ts
+// Soustraire une année 
+    expect(JSDate.substract('y', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2021-02-17T00:00:00')
+    );
+```
+
+3. Substract months  
+
+```ts
+// Soustraire un mois 
+    expect(JSDate.substract('M', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-01-17T00:00:00')
+    );
+```
+
+4. Substract days  
+
+```ts
+// Soustraire un jour
+    expect(JSDate.substract('d', JSDate.create('2022-02-17 00:00:00'))).toEqual(
+      new Date('2022-02-16T00:00:00')
+    );
+```
+
 Note: The package being under active development, required method will be added and Api
 can be changed.
 
