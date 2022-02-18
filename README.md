@@ -113,6 +113,17 @@ Substract dates from current date
     );
 ```
 
+- check whether a date is after a particular date 
+
+```ts
+    expect(
+      JSDate.isAfter(
+        new Date('2022-02-24T00:00:00'),
+        new Date('2022-02-17T00:00:00')
+      )
+    ).toEqual(true);
+```
+
 Note: The package being under active development, required method will be added and Api
 can be changed.
 
