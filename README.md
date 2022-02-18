@@ -26,6 +26,15 @@ Type definition of value that can be passed as parameter to {@see JSDate.create(
 JSDate is an utility class for manipulating javascript date object. It offers various
 methods to serve this purpose.
 
+#### Usage
+
+- Create a javascript date instance
+
+```ts
+// Crée une instance {@see Date} de javascript
+const date = JSDate.create('2022-02-17 12:5700');
+```
+
 Note: The package being under active development, required method will be added and Api
 can be changed.
 
