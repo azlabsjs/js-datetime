@@ -4,7 +4,7 @@
 
 ### ParseMonth
 
-Funtional interface for converting Roman Calendar month index into a language dependant label using pre-configured list of months with.
+Functional interface for converting Roman Calendar month index into a language dependant label using pre-configured list of months with.
 
 ### GetTimeAgo
 
