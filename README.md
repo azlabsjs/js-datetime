@@ -170,14 +170,14 @@ JSDate.diff(date2, date, 's').toEqual(3600);
 const format1 = JSDate.format(date, 'L');
 const format2 = JSDate.format(date, 'LTS');
 const format3 = JSDate.format(date, 'LL');
-expect(typeof format1).toEqual('string');
-expect(format1).toEqual('02/17/2022'); //
-expect(format2).toEqual('1:24:45 PM'); //
-expect(format3).toEqual('February 17, 2022');
+typeof format1.toEqual('string');
+format1.toEqual('02/17/2022'); //
+format2.toEqual('1:24:45 PM'); //
+format3.toEqual('February 17, 2022');
 JSDate.locale('fr-FR');
 const format4 = JSDate.format(date, 'LL');
-expect(format4).toEqual('17 février 2022');
-expect(JSDate.format(date, 'YYYY-MM-DD H:I:S')).toEqual('2022-02-17 13:24:45');
+format4.toEqual('17 février 2022');
+JSDate.format(date, 'YYYY-MM-DD H:I:S')).toEqual('2022-02-17 13:24:45');
 ```
 
 - returns true for a difference in ms computation of today and another date with JSDate.timeSince()
