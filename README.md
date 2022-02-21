@@ -43,36 +43,28 @@ Substract dates from a particular date
 
 ```ts
 // Soustraire une semaine
-JSDate.substract('w', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-10T00:00:00')
-);
+JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > Substract years
 
 ```ts
 // Soustraire une année
-JSDate.substract('y', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2021-02-17T00:00:00')
-);
+JSDate.substract('y', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > Substract months
 
 ```ts
 // Soustraire un mois
-JSDate.substract('M', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-01-17T00:00:00')
-);
+JSDate.substract('M', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > Substract days
 
 ```ts
 // Soustraire un jour
-JSDate.substract('d', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-16T00:00:00')
-);
+JSDate.substract('d', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 - add dates
@@ -83,36 +75,28 @@ add dates to a particular date
 
 ```ts
 // ajouter une semaine
-JSDate.add('w', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-24T00:00:00')
-);
+JSDate.add('w', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > add hours
 
 ```ts
 // ajouter une heure
-JSDate.add('h', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-17T01:00:00')
-);
+JSDate.add('h', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > add minutes
 
 ```ts
 // ajouter une minute
-JSDate.add('m', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-17T00:01:00')
-);
+JSDate.add('m', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 > add secondes
 
 ```ts
 // ajouter une seconde
-JSDate.add('s', JSDate.create('2022-02-17 00:00:00')).toEqual(
-  new Date('2022-02-17T00:00:01')
-);
+JSDate.add('s', JSDate.create('2022-02-17 00:00:00'));
 ```
 
 - check whether a date is after a particular date
@@ -121,47 +105,46 @@ JSDate.add('s', JSDate.create('2022-02-17 00:00:00')).toEqual(
 JSDate.isAfter(
   new Date('2022-02-24T00:00:00'),
   new Date('2022-02-17T00:00:00')
-).toEqual(true);
+);
 ```
 
 - check whether a date is before a particular date
 
 ```ts
-      JSDate.isBefore(
-        new Date('2022-02-24T00:00:00'),
-        new Date('2022-02-17T00:00:00')
-      )
-    ).toEqual(false);
+JSDate.isBefore(
+  new Date('2022-02-24T00:00:00'),
+  new Date('2022-02-17T00:00:00')
+);
 ```
 
 - check for javascript date object is true and return false for invalid dates
 
 ```ts
-    JSDate.isDate('I am not a date').toEqual(false);
-    JSDate.isDate(new Date())).toEqual(true);
+JSDate.isDate('I am not a date');
+JSDate.isDate(new Date());
 ```
 
 - return values when date part methods are called on a date
 
 ```ts
-JSDate.getMonth(date).toEqual(1);
-JSDate.getYear(date).toEqual(2022);
-JSDate.getDay(date).toEqual(4);
-JSDate.getDate(date).toEqual(17);
-JSDate.getHours(date).toEqual(13);
-JSDate.getMinutes(date).toEqual(24);
-JSDate.getSeconds(date).toEqual(45);
+JSDate.getMonth(date);
+JSDate.getYear(date);
+JSDate.getDay(date);
+JSDate.getDate(date);
+JSDate.getHours(date);
+JSDate.getMinutes(date);
+JSDate.getSeconds(date);
 ```
 
 - test the computed unit of time difference between 2 dates
 
 ```ts
-JSDate.diff(date2, date, 'y').toEqual(0);
-JSDate.diff(date2, date, 'M').toEqual(0);
-JSDate.diff(date2, date, 'd').toEqual(0);
-JSDate.diff(date2, date, 'h').toEqual(1);
-JSDate.diff(date2, date, 'minutes').toEqual(60);
-JSDate.diff(date2, date, 's').toEqual(3600);
+JSDate.diff(date2, date, 'y');
+JSDate.diff(date2, date, 'M');
+JSDate.diff(date2, date, 'd');
+JSDate.diff(date2, date, 'h');
+JSDate.diff(date2, date, 'minutes');
+JSDate.diff(date2, date, 's');
 ```
 
 - converts a date object to user defined format with JSDate.format()
@@ -170,46 +153,33 @@ JSDate.diff(date2, date, 's').toEqual(3600);
 const format1 = JSDate.format(date, 'L');
 const format2 = JSDate.format(date, 'LTS');
 const format3 = JSDate.format(date, 'LL');
-typeof format1.toEqual('string');
-format1.toEqual('02/17/2022'); //
-format2.toEqual('1:24:45 PM'); //
-format3.toEqual('February 17, 2022');
+typeof format1
 JSDate.locale('fr-FR');
 const format4 = JSDate.format(date, 'LL');
-format4.toEqual('17 février 2022');
-JSDate.format(date, 'YYYY-MM-DD H:I:S')).toEqual('2022-02-17 13:24:45');
+
+JSDate.format(date, 'YYYY-MM-DD H:I:S'));
 ```
 
 - returns true for a difference in ms computation of today and another date with JSDate.timeSince()
 
 ```ts
-JSDate.timeSince(new Date('2022-02-20T13:24:45')).toEqual(
-  Math.floor(JSDate.diff(JSDate.now(), new Date('2022-02-20T13:24:45')))
-);
+JSDate.timeSince(new Date('2022-02-20T13:24:45'));
 ```
 
 - returns false if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date with JSDate.isPast()
 
 ```ts
-JSDate.isPast(JSDate.add('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
-  false
-);
+JSDate.isPast(JSDate.add('w', JSDate.create('2022-02-17 00:00:00')));
 
-JSDate.isPast(
-  JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))
-).toEqual(true);
+JSDate.isPast(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00')));
 ```
 
 - returns true if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date with JSDate.isFuture()
 
 ```ts
-JSDate.isFuture(JSDate.add('w', JSDate.create('2022-02-17 00:00:00'))).toEqual(
-  true
-);
+JSDate.isFuture(JSDate.add('w', JSDate.create('2022-02-17 00:00:00')));
 
-JSDate.isFuture(
-  JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))
-).toEqual(false);
+JSDate.isFuture(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00')));
 ```
 
 Note: The package being under active development, required method will be added and Api
