@@ -182,17 +182,15 @@ describe('JSDate Utilities class', () => {
     );
   });
   it('JSDate.isPast() returns false if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date', () => {
-    expect(
-      JSDate.isPast(JSDate.add('w', JSDate.create('2022-02-17 00:00:00')))
-    ).toEqual(false);
+    expect(JSDate.isPast(JSDate.add('w', JSDate.create()))).toEqual(
+      false
+    );
     expect(
       JSDate.isPast(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00')))
     ).toEqual(true);
   });
   it('JSDate.isFuture() returns true if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date', () => {
-    expect(
-      JSDate.isFuture(JSDate.add('w', JSDate.create('2022-02-17 00:00:00')))
-    ).toEqual(true);
+    expect(JSDate.isFuture(JSDate.add('w', JSDate.create()))).toEqual(true);
     expect(
       JSDate.isFuture(
         JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))

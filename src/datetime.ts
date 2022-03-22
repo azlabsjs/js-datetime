@@ -54,7 +54,7 @@ export class JSDate {
   private static readonly MS_PER_MINUTES_ = 1000 * 60;
   private static readonly MS_PER_SECONDS_ = 1000;
 
-  private static LOCALE_: string = 'en-US';
+  private static LOCALE_ = 'en-US';
 
   private static readonly FORMAT_MAP: {
     [prop: string]: Intl.DateTimeFormatOptions;
@@ -100,7 +100,7 @@ export class JSDate {
    *
    * @param locale_
    */
-  static locale = (locale_: string = 'en-US') => (JSDate.LOCALE_ = locale_);
+  static locale = (locale_ = 'en-US') => (JSDate.LOCALE_ = locale_);
 
   /**
    * Creates a javascript date object
@@ -132,7 +132,7 @@ export class JSDate {
   static substract = <T extends JsDateParamType>(
     unit: UnitOfTime,
     date?: T,
-    value: number = 1
+    value = 1
   ) => {
     const today = JSDate.computeInterval_(
       JSDate.create(date),
@@ -154,7 +154,7 @@ export class JSDate {
   static add = <T extends JsDateParamType>(
     unit: UnitOfTime,
     date?: T,
-    value: number = 1
+    value = 1
   ) => {
     const today = JSDate.computeInterval_(JSDate.create(date), unit, value);
     return JSDate.create(today.toISOString());
@@ -380,7 +380,7 @@ export class JSDate {
       list: string[],
       func: (date: Date, options: Intl.DateTimeFormatOptions) => string
     ) => {
-      for (let current of list) {
+      for (const current of list) {
         if (value.includes(current)) {
           value = value.replace(new RegExp(current, 'gi'), match => {
             match = match.toUpperCase();
@@ -437,7 +437,7 @@ export class JSDate {
     today: Date,
     unit: UnitOfTime,
     value: number,
-    incr: boolean = true
+    incr = true
   ) => {
     switch (unit) {
       case 'year':
@@ -508,7 +508,7 @@ export class JSDate {
   private static computeTimeDiff = (
     date1: Date,
     date2: Date,
-    factor: number = 1
+    factor = 1
   ) => Math.round((date1.getTime() - date2.getTime()) / factor);
 
   private static monthDiff = (date1: Date, date2: Date) => {
