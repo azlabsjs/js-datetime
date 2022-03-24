@@ -73,7 +73,7 @@ export class JSDate {
   static substract = <T extends JsDateParamType>(
     unit: UnitOfTime,
     date?: T,
-    value: number = 1
+    value = 1
   ) => {
     const today = JSDate.computeInterval_(
       JSDate.create(date),
@@ -95,7 +95,7 @@ export class JSDate {
   static add = <T extends JsDateParamType>(
     unit: UnitOfTime,
     date?: T,
-    value: number = 1
+    value = 1
   ) => {
     const today = JSDate.computeInterval_(JSDate.create(date), unit, value);
     return JSDate.create(today.toISOString());
@@ -361,7 +361,7 @@ export class JSDate {
       list: string[],
       func: (date: Date, options: Intl.DateTimeFormatOptions) => string
     ) => {
-      for (let current of list) {
+      for (const current of list) {
         if (value.includes(current)) {
           value = value.replace(new RegExp(current, 'gi'), match => {
             match = match.toUpperCase();
@@ -418,7 +418,7 @@ export class JSDate {
     today: Date,
     unit: UnitOfTime,
     value: number,
-    incr: boolean = true
+    incr = true
   ) => {
     switch (unit) {
       case 'year':
@@ -489,7 +489,7 @@ export class JSDate {
   private static computeTimeDiff = (
     date1: Date,
     date2: Date,
-    factor: number = 1
+    factor = 1
   ) => Math.round((date1.getTime() - date2.getTime()) / factor);
 
   private static monthDiff = (date1: Date, date2: Date) => {
