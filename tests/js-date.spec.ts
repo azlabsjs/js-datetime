@@ -133,7 +133,6 @@ describe('JSDate Utilities class', () => {
   });
 
   it('JSDate.isDate() should returns an true for javascript date object and false for invalid dates', () => {
-    expect(JSDate.isDate('I am not a date')).toEqual(false);
     expect(JSDate.isDate(new Date())).toEqual(true);
   });
 
@@ -182,19 +181,37 @@ describe('JSDate Utilities class', () => {
     );
   });
   it('JSDate.isPast() returns false if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date', () => {
-    expect(JSDate.isPast(JSDate.add('w', JSDate.create()))).toEqual(
-      false
-    );
-    expect(
-      JSDate.isPast(JSDate.substract('w', JSDate.create('2022-02-17 00:00:00')))
-    ).toEqual(true);
+    expect(JSDate.isPast(JSDate.add('w', JSDate.create()))).toEqual(false);
+    expect(JSDate.isPast(JSDate.substract('w', JSDate.create()))).toEqual(true);
   });
   it('JSDate.isFuture() returns true if a day, a year, month, a minute, a second, an hour, week etc... is addded to current date', () => {
     expect(JSDate.isFuture(JSDate.add('w', JSDate.create()))).toEqual(true);
-    expect(
-      JSDate.isFuture(
-        JSDate.substract('w', JSDate.create('2022-02-17 00:00:00'))
-      )
-    ).toEqual(false);
+    expect(JSDate.isFuture(JSDate.substract('w', JSDate.create()))).toEqual(
+      false
+    );
+  });
+
+  it('JSDate.create() should create a Javascript date if the specified format is valid', () => {
+    const format = 'DD MM YYYY H:i:s';
+    const format2 = 'DD/MM/YYYY H:i:sZ';
+    const format3 = 'MM-DD-YYYY H:i:s';
+    const format4 = 'MM-DD-YYYY';
+    const format5 = 'YYYY/MM/DD';
+    expect(JSDate.create('20 10 2022 10:12:00+02:00', format)).toBeInstanceOf(
+      Date
+    );
+    expect(JSDate.create('20/10/2022 10:12:00Z', format2)).toBeInstanceOf(Date);
+    expect(JSDate.create('10-20-2022 10:12:00+02:00', format3)).toBeInstanceOf(
+      Date
+    );
+    expect(JSDate.create('10-20-2022', format4)).toBeInstanceOf(Date);
+    expect(JSDate.create('2022-10-20', format5).toString()).toEqual(
+      'Invalid Date'
+    );
+  });
+
+  it('JSDate.isValid() should returns an true for javascript date object and false for invalid dates', () => {
+    expect(JSDate.isValid('I am not a date')).toEqual(false);
+    expect(JSDate.isValid(new Date())).toEqual(true);
   });
 });
