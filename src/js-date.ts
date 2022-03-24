@@ -23,7 +23,7 @@ import {
  * can be changed.
  */
 export class JSDate {
-  private static LOCALE_: string = 'en-US';
+  private static LOCALE_ = 'en-US';
 
   /**
    * Set the global local to use when formating dates
