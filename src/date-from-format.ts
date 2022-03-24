@@ -55,7 +55,7 @@ export function createFromFormat(date: string, format: string) {
   let dirtyDatePart: string | undefined;
   let separator = '/';
   const timezoneMatches = date.match(TIMEZONE_REGEX);
-  let dateTimezone = timezoneMatches ? timezoneMatches[0] : undefined;
+  const dateTimezone = timezoneMatches ? timezoneMatches[0] : undefined;
   if (format.includes(':')) {
     const timeCaptures = format.match(TIME_FORMAT_REGEX);
     timePart =
@@ -92,11 +92,11 @@ export function createFromFormat(date: string, format: string) {
   let offset = 0;
   if (dateTimezone) {
     const sign = dateTimezone.charAt(0) === '+' ? -1 : 1;
-    let hours =
+    const hours =
       dateTimezone.toLocaleLowerCase() === 'z'
         ? 0
         : +dateTimezone.substring(1, 3);
-    let minutes =
+    const minutes =
       dateTimezone.toLocaleLowerCase() === 'z' ? 0 : +dateTimezone.substring(4);
     offset = sign * (hours * MS_PER_HOURS_ + minutes * MS_PER_MINUTES_);
   }
@@ -114,12 +114,12 @@ export function createFromFormat(date: string, format: string) {
 }
 
 function createTimeUnitSlice(date: string, format: string, separator: string) {
-  let output: DateObjectParam = {} as DateObjectParam;
+  const output: DateObjectParam = {} as DateObjectParam;
   const formatComponents = format.split(separator);
   let regexStr = '';
   let index = 0;
-  let length = formatComponents.length;
-  for (let curr of formatComponents) {
+  const length = formatComponents.length;
+  for (const curr of formatComponents) {
     const object_ = FORMATS[curr];
     if (object_) {
       regexStr += `${object_.regex}${index === length - 1 ? '' : separator}`;
