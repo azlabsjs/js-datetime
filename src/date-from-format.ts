@@ -45,9 +45,9 @@ type DateObjectParam = {
   seconds: number;
 };
 
-const DATE_FORMAT_REGEX = /^DD[\/ -]MM[\/ -](YYYY|YY)|(DD[\/ -](YYYY|YY)[\/ -]MM)|(MM[\/ -]DD[\/ -](YYYY|YY))|(MM[\/ -](YYYY|YY)[\/ -]DD)|((YYYY|YY)[\/ -]MM[\/ -]DD)|((YYYY|YY)[\/ -]DD[\/ -]MM)$/i;
+const DATE_FORMAT_REGEX = /^DD[/ -]MM[/ -](YYYY|YY)|(DD[/ -](YYYY|YY)[/ -]MM)|(MM[/ -]DD[/ -](YYYY|YY))|(MM[/ -](YYYY|YY)[/ -]DD)|((YYYY|YY)[/ -]MM[/ -]DD)|((YYYY|YY)[/ -]DD[/ -]MM)$/i;
 const TIME_FORMAT_REGEX = /H[ :]i[ :]s/i;
-const DATE_SEPARATOR_REGEX = /[\/ -]/i;
+const DATE_SEPARATOR_REGEX = /[/ -]/i;
 const TIMEZONE_REGEX = /[+-][\d]{2}[:][\d]{2}|Z/i;
 
 export function createFromFormat(date: string, format: string) {

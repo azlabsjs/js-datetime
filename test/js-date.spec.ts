@@ -197,11 +197,17 @@ describe('JSDate Utilities class', () => {
     const format3 = 'MM-DD-YYYY H:i:s';
     const format4 = 'MM-DD-YYYY';
     const format5 = 'YYYY/MM/DD';
-    expect(JSDate.create('20 10 2022 10:12:00+02:00', format)).toBeInstanceOf(Date);
+    expect(JSDate.create('20 10 2022 10:12:00+02:00', format)).toBeInstanceOf(
+      Date
+    );
     expect(JSDate.create('20/10/2022 10:12:00Z', format2)).toBeInstanceOf(Date);
-    expect(JSDate.create('10-20-2022 10:12:00+02:00', format3)).toBeInstanceOf(Date);
+    expect(JSDate.create('10-20-2022 10:12:00+02:00', format3)).toBeInstanceOf(
+      Date
+    );
     expect(JSDate.create('10-20-2022', format4)).toBeInstanceOf(Date);
-    expect(JSDate.create('2022-10-20', format5).toString()).toEqual('Invalid Date');
+    expect(JSDate.create('2022-10-20', format5).toString()).toEqual(
+      'Invalid Date'
+    );
   });
 
   it('JSDate.isValid() should returns an true for javascript date object and false for invalid dates', () => {
