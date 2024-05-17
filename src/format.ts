@@ -77,7 +77,7 @@ export function createFromFormat(date: string, format: string) {
   }
   if (dirtyDatePart) {
     const matches = datePart.match(DATE_SEPARATOR_REGEX);
-    separator = (matches || []).length !== 0 ? (matches || [])[0] : separator;
+    separator = (matches || []).length !== 0 ? ((matches || [])[0]) ?? '/' : separator;
   }
   // Create date slice
   let slice = createTimeUnitSlice(date, datePart, separator);

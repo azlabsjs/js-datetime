@@ -6,7 +6,7 @@ import {
   MS_PER_SECONDS_,
   MS_PER_WEEKS_,
 } from './constants';
-import { createFromFormat } from './date-from-format';
+import { createFromFormat } from './format';
 import { parseISO } from './parse-iso';
 import {
   AdditionalDigits,
@@ -107,7 +107,7 @@ export class JSDate {
    * @param date
    */
   static isPast = <T extends JsDateParamType>(date: T) =>
-    JSDate.isBefore(date, JSDate.now() as JsDateParamType);
+    JSDate.isBefore<T>(date, JSDate.now() as T);
 
   /**
    * Checks if a given date is after the current date
@@ -115,7 +115,7 @@ export class JSDate {
    * @param date
    */
   static isFuture = <T extends JsDateParamType>(date: T) =>
-    JSDate.isAfter(date, JSDate.now() as JsDateParamType);
+    JSDate.isAfter<T>(date, JSDate.now() as T);
 
   /**
    * Checks if a given date is after another date
@@ -363,7 +363,7 @@ export class JSDate {
     ) => {
       for (const current of list) {
         if (value.includes(current)) {
-          value = value.replace(new RegExp(current, 'gi'), match => {
+          value = value.replace(new RegExp(current, 'gi'), (match) => {
             match = match.toUpperCase();
             const inputFormat_ = INTL_DATE_TIME_FORMATS[match];
             return `${func(date, inputFormat_)}`;
@@ -486,11 +486,8 @@ export class JSDate {
     return today;
   };
 
-  private static computeTimeDiff = (
-    date1: Date,
-    date2: Date,
-    factor = 1
-  ) => Math.round((date1.getTime() - date2.getTime()) / factor);
+  private static computeTimeDiff = (date1: Date, date2: Date, factor = 1) =>
+    Math.round((date1.getTime() - date2.getTime()) / factor);
 
   private static monthDiff = (date1: Date, date2: Date) => {
     let months =

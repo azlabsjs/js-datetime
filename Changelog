@@ -18,3 +18,7 @@
     Note: `<>` are placeholders for seperators. And the supported separators are `-` , ` ` , and `/`
 
     Note: For the Time part `HH:i:s` is the only format supported
+
+## [v0.2.0] 2024-05-17
+
+- Upgraded @azlabsjs/ts-build version to 0.4.21
