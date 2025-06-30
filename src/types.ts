@@ -71,3 +71,8 @@ export interface ParsedYear {
   year: number;
   restDateString: string;
 }
+
+
+/** @internal */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type UnknownType = any;

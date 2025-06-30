@@ -8,7 +8,7 @@ type Locale_ = 'en-US' | 'fr-FR' | string;
 type TimeSinceLocaleConfig = {
   [index: string]: {
     timeUnit: {
-      [ShortTimeUnit_: string]: any;
+      [ShortTimeUnit_: string]: unknown;
     };
     ago: string;
     later: string;
